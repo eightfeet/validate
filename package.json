@@ -1,0 +1,22 @@
+{
+  "name": "validate",
+  "version": "1.0.0",
+  "description": "BY-HEALTH data validation",
+  "main": "validate.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eightfeet/validate.git"
+  },
+  "keywords": [
+    "validate"
+  ],
+  "author": "eightfeet",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eightfeet/validate/issues"
+  },
+  "homepage": "https://github.com/eightfeet/validate#readme"
+}
