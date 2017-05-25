@@ -1,3 +1,8 @@
+### Install
+```sh
+    npm i validate-by-health
+```
+
 ### Validate Usage
 
 ```jsx
