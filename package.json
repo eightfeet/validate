@@ -1,5 +1,5 @@
 {
-  "name": "validate",
+  "name": "validate-by-health",
   "version": "1.0.0",
   "description": "BY-HEALTH data validation",
   "main": "validate.js",
