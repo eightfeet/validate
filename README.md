@@ -35,6 +35,35 @@
     }
     export default example;
 ```
+
+
+### validate(data, Boolean) 验证方法     
+
+属性 | 说明 | 类型 | 默认值
+-----|-----|-----|------
+|  data | 验证数据，{key: value} key是验证器，value是验证数据和验证规则参数 |  Object | 必填  |
+| Boolean  | 控制返回结果，设为true时完成整个data的验证以{key: returns}形式返回， | Boolean  |  默认false |
+
+
+- 注意：多个数据用到同类型验证器时请使用key_(lable)
+
+```js
+    const error = validate({
+        'VPhone_Jhon': '13111111111',
+        'VPhone_Lucy': '13875745147',
+        'VPhone_Lee': '13',
+        ...
+    }, true);
+```
+返回结果
+```
+    return error = {
+        VPhone_Jhon: false,
+        VPhone_Lucy: false,
+        VPhone_Lee: '请输入正确手机号码'
+    }
+```
+
 ### Validate 键值属性（String or Array）       
 
 - VPhone(data, Msg, strict)    
