@@ -409,7 +409,7 @@ const VEqual = function(dataA, dataB, Msg, turnOver) {
 }
 
 /* if has dangerous Char */
-const VdangerousChar = function(data, Msg) {
+const VDangerousChar = function(data, Msg) {
 	let Str;
 	
 		if (data !== 0) {
@@ -551,6 +551,6 @@ validate.VNumber = VNumber;
 validate.VChinese = VChinese;
 validate.VEnglish = VEnglish;
 validate.VEqual = VEqual;
-validate.VdangerousChar = VdangerousChar;
+validate.VDangerousChar = VDangerousChar;
 
 export default validate;

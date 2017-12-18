@@ -198,7 +198,7 @@ turnOver | false时验证相等，true时验证不相等 |  Boolean | false
 
 - VdangerousChar(data, Msg)   
 ```jsx
-	validate({VdangerousChar: [data, Msg]})
+	validate({VDangerousChar: [data, Msg]})
 ```
 
 属性 | 说明 | 类型 | 默认值
