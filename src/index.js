@@ -1,4 +1,10 @@
 /**
+ * BY-Health Front-end Team (https://www.by-health.com/)
+ *
+ * Copyright © 2016-2017 By-Health Co Ltd. All rights reserved.
+ */
+
+ /**
 * VPhone(data, Msg, strict)
 * 验证手机，data: 手机号码，strict: 当第三个参数设为'strict'时开启严格验证，不填时只验证已1开头的11位手机号码
 * VName(data, Msg, Zh)
@@ -36,7 +42,7 @@
  * @data {String|Number} request
  * @strict {String}
  */
-const VPhone = function(data, Msg, strict) {
+export const VPhone = function(data, Msg, strict) {
 	let Str;
 
 	if (data !== 0) {
@@ -77,7 +83,7 @@ const VPhone = function(data, Msg, strict) {
  * @data {String} request
  * @Zh {String} = 'Zh' validate the chinese name
  */
-const VName = function(data, Msg, Zh) {
+export const VName = function(data, Msg, Zh) {
 	let Str;
 
 	if (data !== 0) {
@@ -85,7 +91,6 @@ const VName = function(data, Msg, Zh) {
 	} else {
 		Str = '0';
 	}
-
 	Str
         ? Str = Str.toString()
         : null;
@@ -116,7 +121,7 @@ const VName = function(data, Msg, Zh) {
  * @export
  * @data {String} request
  */
-const VEmail = function(data, Msg) {
+export const VEmail = function(data, Msg) {
 	let Str;
 
 	if (data !== 0) {
@@ -146,7 +151,7 @@ const VEmail = function(data, Msg) {
  * @export
  * @data {String} request
  */
-const VSecurityCode = function(data, Msg) {
+export const VSecurityCode = function(data, Msg) {
 	let Str;
 
 	if (data !== 0) {
@@ -176,7 +181,7 @@ const VSecurityCode = function(data, Msg) {
  * @export
  * @data {String} request
  */
-const VBarCode = function(data, Msg) {
+export const VBarCode = function(data, Msg) {
 	let Str;
 
 	if (data !== 0) {
@@ -207,7 +212,7 @@ const VBarCode = function(data, Msg) {
  * @data {String} request
  * @length {Number} default 4
  */
-const VVerificationCode = function(data, Msg, length) {
+export const VVerificationCode = function(data, Msg, length) {
 	let Str;
 
 	if (data !== 0) {
@@ -243,7 +248,7 @@ const VVerificationCode = function(data, Msg, length) {
  * @data {String} request
  * @length {Number} request
  */
-const VRequire = function(data, Msg, length) {
+export const VRequire = function(data, Msg, length) {
 	let Str;
 
 	if (data !== 0) {
@@ -262,7 +267,7 @@ const VRequire = function(data, Msg, length) {
 	}
 
 	if (Str.length < fixLength) {
-		return true;
+		return Msg || true;
 	}
 
 	return false;
@@ -379,6 +384,52 @@ const VEnglish = function(data, Msg) {
 };
 
 /**
+ * equal data
+ *
+ * @export
+ * @dataA & @dataB {String} request
+ */
+const VEqual = function(dataA, dataB, Msg, turnOver) {
+  if (!dataA || !dataB) {
+    console.error('请传入比较参数');
+    return;
+  }
+
+  if (turnOver === false) {
+    if (dataA !== dataB) {
+      return Msg || '数据不相等！';
+    }
+  } else {
+    if (dataA === dataB) {
+      return Msg || '数据相等！';
+    }
+  }
+
+  return false;
+}
+
+/* if has dangerous Char */
+const VdangerousChar = function(data, Msg) {
+	let Str;
+	
+		if (data !== 0) {
+			Str = data;
+		} else {
+			Str = '0';
+		}
+	
+		Str
+					? Str = Str.toString()
+					: null;
+	
+		if (/select |update |delete |truncate |join |union |exec |insert |drop |count|’|"|;|>|<|%/i.test(Str)) {
+			return Msg || true;
+		}
+	
+		return false;
+}
+
+/**
  * validate
  *
  * @export
@@ -488,7 +539,6 @@ function validate(data, strict) {
 	return false;
 }
 
-
 validate.VPhone = VPhone;
 validate.VName = VName;
 validate.VEmail = VEmail;
@@ -500,6 +550,7 @@ validate.VLimit = VLimit;
 validate.VNumber = VNumber;
 validate.VChinese = VChinese;
 validate.VEnglish = VEnglish;
+validate.VEqual = VEqual;
+validate.VdangerousChar = VdangerousChar;
 
 export default validate;
-

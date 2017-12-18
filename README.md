@@ -179,4 +179,34 @@
 属性 | 说明 | 类型 | 默认值
 -----|-----|-----|------
 data | 验证英文 |  string | 必填  
-Msg  |  错误返回信息 | string  |  必填 
+Msg  |  错误返回信息 | string  |  必填    
+
+- VEqual(dataA, dataB, Msg, turnOver)      
+
+验证是否相等
+```jsx
+	validate({VEqual: [data, Msg]})
+```
+
+属性 | 说明 | 类型 | 默认值
+-----|-----|-----|------
+dataA | 比较值A |  string | 必填  
+dataB | 比较值B |  string | 必填  
+Msg  |  错误返回信息 | string  |  非必填     
+turnOver | false时验证相等，true时验证不相等 |  Boolean | false  
+
+
+- VdangerousChar(data, Msg)   
+```jsx
+	validate({VdangerousChar: [data, Msg]})
+```
+
+属性 | 说明 | 类型 | 默认值
+-----|-----|-----|------
+data | 危险性字符验证，防止脚本或SQL注入 |  string | 必填  
+Msg  |  错误返回信息 | string  |  必填    
+
+
+
+
+
