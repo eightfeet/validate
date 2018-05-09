@@ -98,6 +98,17 @@
 |  data | 验证email |  string | 必填  |
 | Msg  |  错误返回信息 | string  |  不填时显示默认提示信息 |
 
+
+- VIdCard(data, Msg)   
+```jsx
+	validate({VIdCard: [data, Msg]})
+```
+
+属性 | 说明 | 类型 | 默认值
+-----|-----|-----|------
+|  data | 验证身份证合法性 |  string | 必填  |
+| Msg  |  错误返回信息 | string  |  不填时显示默认提示信息 |
+
 - VSecurityCode(data, Msg)   
 ```jsx
 	validate({VSecurityCode: [data, Msg]})
